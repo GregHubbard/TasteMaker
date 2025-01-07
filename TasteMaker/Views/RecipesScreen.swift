@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct ContentView: View { //TODO: rename to recipe screen
+struct RecipesScreen: View {
     @State private var vm = RecipeViewModel()
-    @State var imageCache = SharedImageCacheViewModel() //TODO: reevaluate making this in the state
+    @State var imageCache = SharedImageCacheViewModel()
     
     var body: some View {
         NavigationStack {
@@ -30,5 +30,5 @@ struct ContentView: View { //TODO: rename to recipe screen
 }
 
 #Preview {
-    ContentView()
+    RecipesScreen()
 }

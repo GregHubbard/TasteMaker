@@ -16,12 +16,10 @@ class CachedImageViewModel {
     
     func loadImage() {
         if loadedImageFromCache() {
-            print("loaded from cache")
             return
         }
         
         Task {
-            print("loaded from internet")
             await loadImageFromUrl()
         }
     }

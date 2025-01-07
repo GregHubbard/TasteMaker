@@ -5,7 +5,7 @@ struct RecipeListView: View {
     
     var body: some View {
         if vm.recipes.isEmpty {
-            Text("Looks like there won't be any cooking today 😔")
+            Text("No recipes available, looks like there won't be any cooking today 😔")
                 .padding()
             Spacer()
         } else {
@@ -14,14 +14,19 @@ struct RecipeListView: View {
             }
             .refreshable {
                 await vm.loadData(urlString: RecipeUrl.normal)
-                //TODO: possibly force images to reload from internet instead of cache
             }
         }
     }
 }
 
-#Preview {
+#Preview("Normal") {
     RecipeListView()
         .environment(RecipeViewModel.example)
+        .environment(SharedImageCacheViewModel())
+}
+
+#Preview("Empty") {
+    RecipeListView()
+        .environment(RecipeViewModel.emptyExample)
         .environment(SharedImageCacheViewModel())
 }

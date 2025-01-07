@@ -40,7 +40,7 @@ struct CachedImageView: View {
 
 #Preview {
     CachedImageView(
-        urlString: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/b9ab0071-b281-4bee-b361-ec340d405320/small.jpg",
+        urlString: Recipe.example.photoUrlSmall!,
         imageCache: .init())
     
     CachedImageView(

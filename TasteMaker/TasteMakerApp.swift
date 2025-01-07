@@ -11,7 +11,7 @@ import SwiftUI
 struct TasteMakerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecipesScreen()
         }
     }
 }
