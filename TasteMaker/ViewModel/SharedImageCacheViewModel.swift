@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-@Observable //TODO: does not need to be observable if not used in environment
+@Observable
 class SharedImageCacheViewModel {
     var cache = NSCache<NSString, UIImage>()
     

@@ -2,13 +2,13 @@ import Foundation
 import SwiftUI
 
 enum LoadState {
-    case error
     case loading
     case loaded
+    case error
 }
 
 enum ImageLoadState {
-    case error
     case loading
     case loaded(UIImage)
+    case error
 }

@@ -5,24 +5,25 @@ struct CachedImageView: View {
     let size: CGFloat = 100
     
     init(urlString: String, imageCache: SharedImageCacheViewModel) {
-        cachedImageViewModel = CachedImageViewModel(urlString: urlString, sharedImageCache: imageCache)
+        cachedImageViewModel = CachedImageViewModel(
+            urlString: urlString,
+            sharedImageCache: imageCache)
     }
     
     var body: some View {
         Group {
             switch cachedImageViewModel.loadState {
-            case .error:
-                placeholderView()
             case .loading:
                 ZStack {
                     placeholderView()
-                    
                     ProgressView()
                 }
             case .loaded(let image):
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFill()
+            case .error:
+                placeholderView()
             }
         }
         .frame(width: size, height: size)
@@ -40,11 +41,9 @@ struct CachedImageView: View {
 #Preview {
     CachedImageView(
         urlString: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/b9ab0071-b281-4bee-b361-ec340d405320/small.jpg",
-        imageCache: .init()
-    )
+        imageCache: .init())
     
     CachedImageView(
         urlString: "",
-        imageCache: .init()
-    )
+        imageCache: .init())
 }
