@@ -7,7 +7,7 @@ enum LoadState {
     case error
 }
 
-enum ImageLoadState {
+enum ImageLoadState: Equatable {
     case loading
     case loaded(UIImage)
     case error

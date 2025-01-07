@@ -1,18 +1,18 @@
 import SwiftUI
 
 struct CachedImageView: View {
-    @State var cachedImageViewModel: CachedImageViewModel
+    @State var vm: CachedImageViewModel
     let size: CGFloat = 100
     
     init(urlString: String, imageCache: SharedImageCacheViewModel) {
-        cachedImageViewModel = CachedImageViewModel(
-            urlString: urlString,
+        vm = CachedImageViewModel(
+            url: .init(string: urlString),
             sharedImageCache: imageCache)
     }
     
     var body: some View {
         Group {
-            switch cachedImageViewModel.loadState {
+            switch vm.loadState {
             case .loading:
                 ZStack {
                     placeholderView()
@@ -28,6 +28,9 @@ struct CachedImageView: View {
         }
         .frame(width: size, height: size)
         .clipShape(.rect(cornerRadius: 10))
+        .task {
+            await vm.loadImage()
+        }
     }
     
     @ViewBuilder

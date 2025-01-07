@@ -3,29 +3,37 @@ import SwiftUI
 
 @Observable
 class CachedImageViewModel {
-    var urlString: String
+    var url: URL?
     var sharedImageCache: SharedImageCacheViewModel
     var loadState: ImageLoadState
     
-    init(urlString: String, sharedImageCache: SharedImageCacheViewModel) {
-        self.urlString = urlString
+    init(url: URL?, sharedImageCache: SharedImageCacheViewModel) {
+        self.url = url
         self.sharedImageCache = sharedImageCache
         self.loadState = .loading
-        loadImage()
     }
     
-    func loadImage() {
-        if loadedImageFromCache() {
-            return
-        }
-        
-        Task {
-            await loadImageFromUrl()
+    func loadImage() async {
+        do {
+            guard let url else {
+                throw TasteMakerError.invalidUrl
+            }
+            
+            if loadedImageFromCache(for: url) {
+                return
+            }
+            
+            try await loadImage(from: url)
+        } catch {
+            DispatchQueue.main.async {
+                self.loadState = .error
+            }
+            print(error.localizedDescription)
         }
     }
     
-    func loadedImageFromCache() -> Bool {
-        guard let cacheImage = sharedImageCache.get(forKey: urlString) else {
+    private func loadedImageFromCache(for url: URL) -> Bool {
+        guard let cacheImage = sharedImageCache.get(forKey: url.absoluteString) else {
             return false
         }
         
@@ -33,27 +41,16 @@ class CachedImageViewModel {
         return true
     }
     
-    func loadImageFromUrl() async {
-        do {
-            guard let url = URL(string: urlString) else {
-                throw TasteMakerError.invalidUrl
-            }
-            
-            let (data, _) = try await URLSession.shared.data(from: url)
-            
-            guard let loadedImage = UIImage(data: data) else {
-                throw TasteMakerError.unableToLoadImageFromData
-            }
-            
-            DispatchQueue.main.async {
-                self.sharedImageCache.set(forKey: self.urlString, image: loadedImage)
-                self.loadState = .loaded(loadedImage)
-            }
-        } catch {
-            DispatchQueue.main.async {
-                self.loadState = .error
-            }
-            print(error.localizedDescription)
+    private func loadImage(from url: URL) async throws {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        guard let loadedImage = UIImage(data: data) else {
+            throw TasteMakerError.unableToLoadImageFromData
+        }
+        
+        DispatchQueue.main.async {
+            self.sharedImageCache.set(forKey: url.absoluteString, image: loadedImage)
+            self.loadState = .loaded(loadedImage)
         }
     }
 }

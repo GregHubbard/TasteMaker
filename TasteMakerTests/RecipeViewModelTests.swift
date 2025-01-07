@@ -8,7 +8,7 @@ class RecipeViewModelTests {
     @Test
     func testLoadDataErrorStateWithInvalidUrl() async throws {
         let vm = RecipeViewModel()
-        await vm.loadData(url: URL(string: ""))
+        await vm.loadData(url: .init(string: ""))
         #expect(vm.loadState == .error)
         #expect(vm.recipes.count == 0)
     }
@@ -16,7 +16,7 @@ class RecipeViewModelTests {
     @Test
     func testLoadDataNormal() async throws {
         let vm = RecipeViewModel()
-        let fileUrl = Bundle(for: RecipeViewModelTests.self).url(forResource: "recipeJsonNormal", withExtension: "json")
+        let fileUrl = Bundle(for: type(of: self)).url(forResource: "recipeJsonNormal", withExtension: "json")
         await vm.loadData(url: fileUrl)
         
         #expect(vm.loadState == .loaded)
@@ -26,7 +26,7 @@ class RecipeViewModelTests {
     @Test
     func testLoadDataMalformed() async throws {
         let vm = RecipeViewModel()
-        let fileUrl = Bundle(for: RecipeViewModelTests.self).url(forResource: "recipeJsonMalformed", withExtension: "json")
+        let fileUrl = Bundle(for: type(of: self)).url(forResource: "recipeJsonMalformed", withExtension: "json")
         await vm.loadData(url: fileUrl)
         
         #expect(vm.loadState == .error)
