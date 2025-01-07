@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RecipesScreen: View {
-    @State private var vm = RecipeViewModel()
+    @State var vm = RecipeViewModel()
     @State var imageCache = SharedImageCacheViewModel()
     
     var body: some View {

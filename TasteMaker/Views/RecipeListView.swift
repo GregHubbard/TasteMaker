@@ -9,8 +9,14 @@ struct RecipeListView: View {
                 .padding()
             Spacer()
         } else {
+            @Bindable var vm = vm
             List(vm.recipes) { recipe in
-                RecipeRowView(recipe)
+                    RecipeRowView(recipe)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Toggle("", systemImage: "play.rectangle.fill", isOn: $vm.videosShowing)
+                }
             }
             .refreshable {
                 await vm.loadData(url: URL(string: RecipeUrl.normal))

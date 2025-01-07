@@ -4,10 +4,15 @@ import Foundation
 class RecipeViewModel {
     var loadState: LoadState
     var recipes: [Recipe]
+    var videosShowing: Bool
     
-    init(loadState: LoadState = .loading, recipes: [Recipe] = [])  {
+    init(
+        loadState: LoadState = .loading,
+        recipes: [Recipe] = [],
+        videoShowing: Bool = false) {
         self.loadState = loadState
         self.recipes = recipes
+        self.videosShowing = videoShowing
     }
     
     func loadData(url: URL?) async {
@@ -28,6 +33,10 @@ class RecipeViewModel {
     
     static var example: RecipeViewModel {
         .init(loadState: .loaded, recipes: [Recipe.example])
+    }
+    
+    static var videosShowing: RecipeViewModel {
+        .init(loadState: .loaded, recipes: [Recipe.example], videoShowing: true)
     }
     
     static var emptyExample: RecipeViewModel {
