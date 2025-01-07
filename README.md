@@ -1,7 +1,7 @@
 ### Summary: Include screen shots or a video of your app highlighting its features
 This app displays the recipe name and cuisine on each row. Each row is tappable to bring you to the source url if it exists. There is toggle in the toolbar that allows you to show videos for each row in a drop down. The videos are embedded in a web view so they open in the iOS video player.
 
-![summary](./summary.mp4?raw=true "Summary")
+Video demo available in files, screenshots at the bottom of this file.
 
 ### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 I focused the most on making sure my code was clean and readable. I value this a lot because it makes it easier to collaborate and your future self will thank you for it.
@@ -17,3 +17,7 @@ The YouTube video drop down has some intermittent issues that I would dig into w
 
 ### Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
 I learned a lot about Swift Testing. I have looked into it previously but this was my first time using it fully in a project, seems like a great tool so far. I wanted to parameterize the tests in the RecipeViewModel which I need to look into further. I went deeper on embedding Youtube videos in apps which was interesting. Overall this was a fun challenge, thanks for the opportunity.
+
+### Screenshots
+![Simulator Screenshot - iPhone 16 - 2025-01-07 at 16 26 02](https://github.com/user-attachments/assets/19ff073b-8e4f-40cd-9391-3c473294f51e)
+![Simulator Screenshot - iPhone 16 - 2025-01-07 at 16 26 12](https://github.com/user-attachments/assets/8913abbe-505e-488d-9a92-21e4d0f08f3e)
