@@ -1,5 +1,5 @@
 ### Summary: Include screen shots or a video of your app highlighting its features
-This app displays the recipe name and cuisine on each row. Each row is tappable to bring you to the source url if it exists. There is toggle in the toolbar that allows you to show videos for each row in a drop down. The videos are embedded in a web view so they open in the iOS video player.
+This app displays the recipe name and cuisine on each row. Each row is tappable to bring you to the source url if it exists. There is a toggle in the toolbar that allows you to show videos for each row in a drop down. The videos are embedded in a web view so they open in the iOS video player.
 
 Video demo available in files, screenshots at the bottom of this file.
 
