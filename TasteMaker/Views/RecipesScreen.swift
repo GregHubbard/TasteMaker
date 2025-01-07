@@ -19,7 +19,8 @@ struct RecipesScreen: View {
                     Spacer()
                 }
             }
-            .navigationTitle("Recipes")
+            .navigationTitle("Tastes")
+            .tint(.green)
             .task {
                 await vm.loadData(url: URL(string: RecipeUrl.normal))
             }

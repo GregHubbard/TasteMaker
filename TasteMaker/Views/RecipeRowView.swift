@@ -24,7 +24,7 @@ struct RecipeRowView: View {
     
     @ViewBuilder
     func recipeRowView() -> some View {
-        HStack {
+        HStack(spacing: 16) {
             if let photoUrl = recipe.photoUrlSmall {
                 CachedImageView(urlString: photoUrl, imageCache: imageCache)
             }
@@ -32,6 +32,14 @@ struct RecipeRowView: View {
                 Text(recipe.name)
                     .font(.headline)
                 Text(recipe.cuisine)
+                    .foregroundStyle(.secondary)
+                    .font(.subheadline)
+                    .padding(4)
+                    .background(.tertiary, in: .rect(cornerRadius: 5))
+                if let sourceUrl = URL(string: recipe.sourceUrl ?? "") {
+                    Link("Source", destination: sourceUrl)
+                        .font(.caption)
+                }
             }
         }
     }

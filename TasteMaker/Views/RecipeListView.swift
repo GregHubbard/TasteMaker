@@ -11,7 +11,7 @@ struct RecipeListView: View {
         } else {
             @Bindable var vm = vm
             List(vm.recipes) { recipe in
-                    RecipeRowView(recipe)
+                RecipeRowView(recipe)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

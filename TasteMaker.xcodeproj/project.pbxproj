@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		09E52A142D2DC1800014A6A8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 09E52A132D2DC1800014A6A8 /* README.md */; };
+		09E52A162D2DCCBC0014A6A8 /* summary.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 09E52A152D2DCCBC0014A6A8 /* summary.mp4 */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		09E528F62D2C6D490014A6A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		09E528E52D2C6D470014A6A8 /* TasteMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E528F52D2C6D490014A6A8 /* TasteMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasteMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E528FF2D2C6D490014A6A8 /* TasteMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasteMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09E52A132D2DC1800014A6A8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		09E52A152D2DCCBC0014A6A8 /* summary.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = summary.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -70,6 +77,8 @@
 		09E528DC2D2C6D470014A6A8 = {
 			isa = PBXGroup;
 			children = (
+				09E52A132D2DC1800014A6A8 /* README.md */,
+				09E52A152D2DCCBC0014A6A8 /* summary.mp4 */,
 				09E528E72D2C6D470014A6A8 /* TasteMaker */,
 				09E528F82D2C6D490014A6A8 /* TasteMakerTests */,
 				09E528E62D2C6D470014A6A8 /* Products */,
@@ -203,6 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E52A142D2DC1800014A6A8 /* README.md in Resources */,
+				09E52A162D2DCCBC0014A6A8 /* summary.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
