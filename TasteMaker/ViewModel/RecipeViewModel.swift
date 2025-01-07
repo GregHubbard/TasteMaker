@@ -10,9 +10,9 @@ class RecipeViewModel {
         self.recipes = recipes
     }
     
-    func loadData(urlString: String) async {
+    func loadData(url: URL?) async {
         do {
-            guard let url = URL(string: urlString) else {
+            guard let url else {
                 throw TasteMakerError.invalidUrl
             }
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -22,7 +22,7 @@ class RecipeViewModel {
             DispatchQueue.main.async {
                 self.loadState = .error
             }
-            print(error.localizedDescription) //TODO: double check that the this prints the correct error
+            print(error.localizedDescription)
         }
     }
     

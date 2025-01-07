@@ -53,7 +53,7 @@ class CachedImageViewModel {
             DispatchQueue.main.async {
                 self.loadState = .error
             }
-            print(error.localizedDescription) //TODO: double check that the this prints the correct error
+            print(error.localizedDescription)
         }
     }
 }

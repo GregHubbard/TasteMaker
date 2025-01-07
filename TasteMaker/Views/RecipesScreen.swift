@@ -21,7 +21,7 @@ struct RecipesScreen: View {
             }
             .navigationTitle("Recipes")
             .task {
-                await vm.loadData(urlString: RecipeUrl.normal)
+                await vm.loadData(url: URL(string: RecipeUrl.normal))
             }
         }
         .environment(vm)

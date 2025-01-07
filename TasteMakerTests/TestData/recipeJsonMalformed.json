@@ -1,0 +1,12 @@
+{
+    "recipes": [
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart",
+            "photo_url_large": "https://some.url/large.jpg",
+            "photo_url_small": "https://some.url/small.jpg",
+            "source_url": "https://some.url/index.html",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        }
+    ]
+}

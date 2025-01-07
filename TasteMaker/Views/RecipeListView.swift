@@ -13,7 +13,7 @@ struct RecipeListView: View {
                 RecipeRowView(recipe)
             }
             .refreshable {
-                await vm.loadData(urlString: RecipeUrl.normal)
+                await vm.loadData(url: URL(string: RecipeUrl.normal))
             }
         }
     }
